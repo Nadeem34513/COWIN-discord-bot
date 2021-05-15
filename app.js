@@ -14,6 +14,5 @@ client.on('message', message => {
     console.log(`${message.author.username}: ${message.content}`)
         
 })
-
 // Login
 client.login(process.env.BOT_TOKEN)
