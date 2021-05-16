@@ -19,6 +19,7 @@
   "homepage": "https://github.com/Nadeem34513/coWIN-discord-bot#readme",
   "dependencies": {
     "discord.js": "^12.5.3",
-    "dotenv": "^9.0.2"
+    "dotenv": "^9.0.2",
+    "node-fetch": "^2.6.1"
   }
 }
