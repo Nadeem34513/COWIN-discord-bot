@@ -1,1 +1,1 @@
-# coWIN-discord-bot
+# COWIN-discord-bot
