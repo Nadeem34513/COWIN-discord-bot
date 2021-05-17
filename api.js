@@ -9,8 +9,8 @@ const get_states = (client, prefix) => {
         const args = message.content.slice(prefix.length).trim().split(' ')
         const command = args.shift().toLowerCase()
 
-        if(message.content.startsWith(prefix) && command === 'api' && args[0] === 'get_state'){
-            message.channel.send('heres the api response(s)')
+        if(message.content.startsWith(prefix) && command === 'get_states'){
+            message.channel.send('check the console for api response(s)')
                     
             const data = await fetch('https://cdn-api.co-vin.in/api/v2/admin/location/states', {
                 // imp
@@ -40,10 +40,10 @@ const get_district = (client, prefix) => {
         const args = message.content.slice(prefix.length).trim().split(' ')
         const command = args.shift().toLowerCase()
 
-        if(message.content.startsWith(prefix) && command === 'api' && args[0] === 'get_district'){
-            message.channel.send('heres the api response(s)')
+        if(message.content.startsWith(prefix) && command === 'get_districts'){
+            message.channel.send('check the console for the api response(s)')
                     
-            const data = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${args[1]}`, {
+            const data = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${args[0]}`, {
                 // imp
                 headers: {
                     'User-Agent': UserAgent

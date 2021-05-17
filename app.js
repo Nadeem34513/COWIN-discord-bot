@@ -2,13 +2,13 @@ const { Client, MessageEmbed } = require('discord.js')
 const fetch = require('node-fetch')
 const mongoose = require('mongoose')
 
-const help = require('./modules/help')
+const help = require('./commands/help')
+const reg = require('./commands/reg')
 const api = require('./api')
-const User = require('./model/Users')
 
 require('dotenv').config()
 
-const prefix = '!'
+const prefix = process.env.PREFIX
 
 // New Discord Client
 const client = new Client()
@@ -24,25 +24,16 @@ mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true})
 mongoose.connection.once('open', () => console.log('Connection made...'))
 
 
-
 // listening to all msgs
-client.on('message', message => {
-    // Dumby code; for testing lol
+// client.on('message', message => {
+     // Dumby code; for testing lol
+    
+// })
 
-    if(!message.content.startsWith(prefix) || message.author.bot) return
-
-    const args = message.content.slice(prefix.length).trim().split(' ')
-    const command = args.shift().toLowerCase()
-
-    if (command === 'reg') {
-        console.log(message.author.username)
-        console.log(message.author.id)
-        console.log(message.author.client)
-        console.log(message.author.tag)
-    }
-})
-
+// Commands with prefix: '!'
 help(client, prefix, embed)
+reg(client, prefix)
+
 
 // API CALLS
 
