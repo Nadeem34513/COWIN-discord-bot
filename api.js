@@ -55,8 +55,8 @@ const get_district = (client, prefix) => {
             const proxyAgent = new HttpsProxyAgent('http://46.250.171.31:8080')
             const data = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${args[0]}`, {
                 // imp
+                agent: proxyAgent,
                 headers: {
-                    agent: proxyAgent,
                     'User-Agent': UserAgent
                 }
             }).then(response => response.json())
