@@ -1,4 +1,5 @@
 const fetch = require('node-fetch')
+const HttpsProxyAgent = require('https-proxy-agent')
 
 const UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0' 
 
@@ -11,9 +12,10 @@ const get_states = (client, prefix) => {
 
         if(message.content.startsWith(prefix) && command === 'get_states'){
             message.channel.send('check the console for api response(s)')
-                    
+            
+            const proxyAgent = new HttpsProxyAgent('http://13.235.248.19:3128')
             const data = await fetch('https://cdn-api.co-vin.in/api/v2/admin/location/states', {
-                // imp
+                agent: proxyAgent,
                 headers: {
                     'User-Agent': UserAgent
                 }
