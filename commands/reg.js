@@ -10,29 +10,34 @@ module.exports = (client, prefix) => {
         const { id, tag, } = author
     
         if (command === 'reg') {
-            const district_id = args[0]
-            const age_grp = args[1]
-
-            User.findOne({ id: id }).then(user => {
-                if (user) {
-                    console.log("User found already exist:  ", user)
-                    message.channel.send(`You have already registered for the district id: ${user.district_id} and age group: ${user.age_grp}`)
-                }
-                else {
-                    const newUser = new User({
-                        id,
-                        district_id,
-                        tag,
-                        age_grp
-                    }).save()
-                        .then(user => {
-                            console.log(`New user added to db ${user}`)
-                            message.channel.send('You have successfully registered for cowin vaccin update')
-                        })
-                        .catch(err => console.log(err))
-                }
-                    
-            })
+            if (args[0] === null || args[1] == null)
+                message.channel.send('Enter the district id and age group as parameters')
+            else {
+                const district_id = args[0]
+                const age_grp = args[1]
+    
+                User.findOne({ id: id }).then(user => {
+                    if (user) {
+                        console.log("User found already exist:  ", user)
+                        message.channel.send(`You have already registered for the district id: ${user.district_id} and age group: ${user.age_grp}`)
+                    }
+                    else {
+                        new User({
+                            id,
+                            district_id,
+                            tag,
+                            age_grp
+                        }).save()
+                            .then(user => {
+                                console.log(`New user added to db ${user}`)
+                                message.channel.send('You have successfully registered for cowin vaccin update')
+                            })
+                            .catch(err => console.log(err))
+                    }
+                        
+                })   
+            }
+            
         }
     })
 }

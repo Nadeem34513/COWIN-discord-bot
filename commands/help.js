@@ -21,7 +21,10 @@ module.exports = (client, prefix, embed) => {
                     {
                         name: '!reg [district_id] [age_group]',
                         value: 'Register for cowin updates using district and age group'
-                        
+                    },
+                    {
+                        name: '!update [district_id] [age_group]',
+                        value: 'Updates your existing district and age group with the one you provided as arguments'
                     }
                 )
             
