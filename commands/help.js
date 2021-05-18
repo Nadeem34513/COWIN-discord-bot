@@ -7,15 +7,15 @@ module.exports = (client, prefix, embed) => {
                 .setFooter("Stay home and wear a mask")
                 .addFields(
                     {
-                        name: '!help',
+                        name: `!help`,
                         value: 'Displays help'
                     },
                     {
-                        name: '!get_states',
+                        name: `!get_states`,
                         value: 'Displays all states and corresponding state id'
                     },
                     {
-                        name: '!get_districts [state_id]',
+                        name: `!get_districts [state_id]`,
                         value: 'Displays all districts and corresponding district id'
                     },
                     {

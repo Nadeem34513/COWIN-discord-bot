@@ -20,16 +20,23 @@ const get_states = (client, prefix) => {
             }).then(response => response.json())
               .catch(err => console.log(err))
                 
-            const newData = JSON.stringify(data)
-            // console.log(newData)
-            // newData.replace(/{|}|"|/g,' ')
-            // console.log(typeof(newData))
-            // console.log(typeof(data))
-            // message.channel.send(newData)
-            message.channel.send(data.states[17].state_name)
+            console.log(data)
+            let newData = JSON.stringify(data)
+        //    newData=newData.replace("{", ' ');
+        //    newData=newData.replace("}", ' ');
+        //    newData=newData.replace("\"", ' ');
+        //    newData=newData.replace(",", ' ');
+        //     newData = newData.substr(0, newData.length - 1);
+            //newData = newData.replace(/{|}|"|,/g,'')
+            newData = newData.replace(/{|}|"/g,'')
+            newData = newData.replace(/,/g,'\n')
+            newData = newData.replace(/[|]/g,'\n')
+
+            // { ,}, and " gets replaced by a blank space
+            console.log(newData)
+            message.channel.send(newData)
             
         }
-    
     })
 }
 
@@ -52,20 +59,50 @@ const get_district = (client, prefix) => {
             
             
             console.log(data)
-            
-            // await message.channel.send(data)
+            let newData = JSON.stringify(data)
+
+            newData = newData.replace(/{|}|"/g,'')
+            newData = newData.replace(/,/g,'\n')
+
+            message.channel.send(newData)
         }
-    
+        // discord edukk
     })
 }
-
-
-
-
-
-
 
 module.exports =  {
     get_states,
     get_district
 }
+
+
+
+// function replaceLastCharacter() {
+//     var str = 'tracedynamics';
+//     str = str.replace('s','S');
+//     console.log(str); 
+// }
+    
+// // //str.substr()
+// function removeLastCharacter() {
+//     var str = ' { " states " : [ { " state_id ": 1, " state_name " : " Andaman and Nicobar Islands " } , { " state_id " : 2,';
+//     str = str.replace("{", ' ').replace("}", ' ').replace("[", ' ').replace("]", ' ')
+
+//     console.log(str); 
+// }
+    
+// removeLastCharacter()
+// // newString = string.replace(/\s+/g,' ').trim();
+
+
+
+// function removeFirstCharacter() {
+//     var str = 'tracedynamics hello';
+//     str = str.slice(0,str.length-1);
+//     console.log(str); 
+//     }
+
+    
+// removeFirstCharacter()
+
+// //var stringWithoutLineBreaks = stringWithLineBreaks.replace(/(\r\n|\n|\r)/gm, "");

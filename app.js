@@ -1,5 +1,4 @@
 const { Client, MessageEmbed } = require('discord.js')
-const fetch = require('node-fetch')
 const mongoose = require('mongoose')
 
 const help = require('./commands/help')
