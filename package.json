@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/Nadeem34513/coWIN-discord-bot#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "discord.js": "^12.5.3",
     "dotenv": "^9.0.2",
     "https-proxy-agent": "^5.0.0",
