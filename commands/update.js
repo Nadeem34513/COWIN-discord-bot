@@ -1,14 +1,12 @@
 const User = require('../model/Users')
 
 module.exports = (client, prefix) => {
-    client.on('message', message => {
-        //Dumby code; for testing lol
-   
+    client.on('message', message => {   
         if(!message.content.includes(prefix) || message.author.bot) return
    
         const args = message.content.slice(prefix.length).trim().split(' ')
         const command = args.shift().toLowerCase()
-   
+
         const { author } = message
         const { id } = author
    
@@ -22,7 +20,6 @@ module.exports = (client, prefix) => {
                     if (user) {message.channel.send('You have successfully updated your district and age group')}
                     else {message.channel.send(`You must first register yourself using _!reg_ command`)}
                 })
-               
             }    
         }  
     })   
