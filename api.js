@@ -1,7 +1,9 @@
 const fetch = require('node-fetch')
 const HttpsProxyAgent = require('https-proxy-agent')
+const axios = require('axios')
 
 const UserAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0' 
+const baseUrl = 'https://cowin.rabeeh.me/api'
 
 //get states 
 const get_states = (client, prefix) => {
@@ -14,7 +16,7 @@ const get_states = (client, prefix) => {
             message.channel.send('check the console for api response(s)')
             
             const proxyAgent = new HttpsProxyAgent('http://46.250.171.31:8080')
-            const data = await fetch('https://cdn-api.co-vin.in/api/v2/admin/location/states', {
+            const data = await fetch(`${baseUrl}/v2/admin/location/states`, {
                 headers: {
                     agent: proxyAgent,
                     'User-Agent': UserAgent
@@ -53,7 +55,7 @@ const get_district = (client, prefix) => {
             message.channel.send('check the console for the api response(s)')
             
             const proxyAgent = new HttpsProxyAgent('http://46.250.171.31:8080')
-            const data = await fetch(`https://cdn-api.co-vin.in/api/v2/admin/location/districts/${args[0]}`, {
+            const data = await fetch(`${baseUrl}/v2/admin/location/districts/${args[0]}`, {
                 // imp
                 //agent: proxyAgent,
                 headers: {
