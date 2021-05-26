@@ -21,7 +21,7 @@ client.on('ready', () => {
 })
 
 // DB Setup 
-const db = process.env.DBKEY
+const db = process.env.DBKEY.toString()
 mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
 mongoose.connection.once('open', () => console.log('Connection made...'))
 
