@@ -16,15 +16,13 @@ module.exports = (client, prefix) => {
         if (message.content.startsWith(prefix) && command === 'get_states') {
             get_states(message)    
         }
-        else if (message.content.startsWith(prefix) && command === 'get_district') {
-            get_district(message, args)
+        else if (message.content.startsWith(prefix) && command === 'get_districts') {
+            get_districts(message, args)
         }        
     })
 }
 
-const get_states = async (message) => {
-    message.channel.send('check the console for api response(s):cry:')
-    
+const get_states = async (message) => {    
     //const proxyAgent = new HttpsProxyAgent('http://46.250.171.31:8080')
     const data = await fetch(`${baseUrl}/v2/admin/location/states`, {
         headers: {
@@ -34,7 +32,6 @@ const get_states = async (message) => {
     }).then(response => response.json())
       .catch(err => console.log(err))
         
-    console.log(data)
     let newData = JSON.stringify(data)
     newData = newData.replace(/{|}|"/g,'')
     newData = newData.replace(/,/g,'\n')
@@ -44,8 +41,7 @@ const get_states = async (message) => {
 }           
 
 
-const get_district = async (message, args) => {    
-
+const get_districts = async (message, args) => {    
     const data = await fetch(`${baseUrl}/v2/admin/location/districts/${args[0]}`, {
         //agent: proxyAgent,
         headers: {
@@ -53,7 +49,6 @@ const get_district = async (message, args) => {
         }
     }).then(response => response.json())
 
-    console.log(data)
     let newData = JSON.stringify(data)
     newData = newData.replace(/{|}|"/g,'')
     newData = newData.replace(/,/g,'\n')
