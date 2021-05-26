@@ -10,7 +10,7 @@ ___
 BFH/recVKXtDb6xacMOVX/2021
 ## Team members
 1. [Erfan Habeeb](https://github.com/erfanhabeeb)
-2. [Jasal MM]()
+2. [Jasal MM](https://github.com/jasal579)
 
 ___
 ## Libraries used
