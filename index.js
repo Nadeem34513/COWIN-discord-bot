@@ -1,5 +1,6 @@
 const { Client, MessageEmbed } = require('discord.js')
 const mongoose = require('mongoose')
+const keys = require('./config/keys')
 
 const help = require('./commands/help')
 const reg = require('./commands/reg')
@@ -21,7 +22,7 @@ client.on('ready', () => {
 })
 
 // DB Setup 
-const db = process.env.DBKEY
+const db = keys.dburi.uri
 mongoose.connect(db, {useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false})
 mongoose.connection.once('open', () => console.log('Connection made...'))
 
