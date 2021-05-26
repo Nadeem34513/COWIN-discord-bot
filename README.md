@@ -43,7 +43,7 @@ cd ./COWIN-discord-bot
 ```javascript
 npm install
 ```
-4. Make sure to create a ``.eni`` file and add your bot token and mongodb URI in it.
+4. Make sure to create a ``.env`` file and add your bot token and mongodb URI in it.
 ## How to Run
 ```javascript
 node start
