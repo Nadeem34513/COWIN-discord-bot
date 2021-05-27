@@ -1,7 +1,7 @@
 ![BFH Banner](https://trello-attachments.s3.amazonaws.com/542e9c6316504d5797afbfb9/542e9c6316504d5797afbfc1/39dee8d993841943b5723510ce663233/Frame_19.png)
 # <center>**CowiVacc**</center>  
 
-CowiVacc is a discord bot that can let user check for cowin vaccin availibilty in their district. **This bot is specifically made for India**
+CowiVacc is a discord bot that can let user check for cowin vaccin availibilty in their district.
 
 [CLICK HERE TO ADD COWIVACC TO YOUR SERVER](https://discord.com/oauth2/authorize?client_id=843232501631287347&scope=bot)
 
